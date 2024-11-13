@@ -1,0 +1,70 @@
+Q1) MULTIDIGIT NUMBER ADDITION
+
+call scan_num to get the first number from the user
+add bx, cx to add the two numbers
+call print_num to print the result
+
+Q2) SUBTRACTION
+
+call scan_num to get the first and second numbers
+sub ax, num2 to perform the subtraction
+call print_num to print the result
+
+Q3) MULTIPLICATION
+
+call scan_num to get the first and second numbers
+mul num2 to perform the multiplication
+call print_num to print the result
+
+Q4) DIVISION
+
+call scan_num to get the dividend and divisor
+div num2 to perform the division and store the quotient and remainder
+mov al, quotient and mov al, remainder to print the quotient and remainder
+
+Q5) INVALID INPUT (FROM 0 TO 255)
+
+The input: label that starts the loop to get user input
+cmp al, 48 and cmp al, 57 checks to ensure the input is a valid digit
+mov temp, al and mov al, num to build the multi-digit number
+
+Q6) SWAP THREE VARIABLES
+
+MOV BL, A, MOV BH, B, and MOV CL, C to store the initial values
+XCHG BL, BH, XCHG BH, CL to swap the values
+MOV A, BL, MOV B, BH, and MOV C, CL to store the swapped values back
+
+Q7) TAKE 4 INPUTS THEN PRINT IN REVERSE ORDER
+
+MOV AH, 01h and int 21h to get each of the 4 characters from the user
+MOV DL, CL, MOV DL, BL, MOV DL, AL to print the characters in reverse order
+
+Q8) CELSIUS TO KELVIN (TAKE INPUT, SHOW INPUT, PRINT ANSWER)
+
+call scan_num to get the Celsius temperature from the user
+MOV K, CX to calculate the Kelvin temperature
+call print_num to print the Celsius and Kelvin temperatures
+
+Q9) CELSIUS TO FAHRENHEIT
+
+call scan_num to get the Celsius temperature from the user
+MOV BX, 9, MUL BX, MOV BX, 5, DIV BX, ADD AX, 32 to convert to Fahrenheit
+call print_num to print the Celsius and Fahrenheit temperatures
+
+Q10) FAHRENHEIT TO CELSIUS
+
+call scan_num to get the Fahrenheit temperature from the user
+SUB AX, 32, MOV BX, 5, MUL BX, MOV BX, 9, DIV BX to convert to Celsius
+call print_num to print the Fahrenheit and Celsius temperatures
+
+Q11) KELVIN TO CELSIUS
+
+call scan_num to get the Kelvin temperature from the user
+SUB AX, 273 to convert to Celsius
+call print_num to print the Kelvin and Celsius temperatures
+
+Q12) NESTED LOOP TO MULTIPLY 2 NUMBERS BY ADDING THEM OR SOMETHING
+
+call scan_num to get the two numbers from the user
+The outer loop decrements the first number, while the inner loop decrements the second number
+INC num to keep track of the running total
