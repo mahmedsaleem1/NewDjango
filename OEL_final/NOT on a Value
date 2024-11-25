@@ -1,0 +1,68 @@
+org 100h
+
+.DATA
+    count DW 0; Store no. of bits
+
+.CODE
+    MOV AX, @DATA
+    MOV DS, AX
+    
+    main PROC
+        
+        MOV AX, 170
+        NOT AX 
+        PUSH AX; Temporarily storing AX
+        
+        MOV CX, 16; FOR 16 bits at most
+        
+        MOV BX, 16
+        temp:
+            CMP AX, 0
+            JE finish
+            
+            INC count
+            
+            XOR DX, DX
+            IDIV BX
+            
+
+            ADD DX, 48
+            CMP DX, 57
+            JG alpha
+            
+            PUSH DX
+            loop temp
+            
+            ; For alphabets
+            alpha: 
+                ADD DX, 7
+                PUSH DX
+                loop temp
+             
+            
+            
+            loop temp 
+            
+        finish:
+            MOV CX, count
+            CMP CX, 0
+            JE printFinished  
+            MOV AH, 02h
+            print:
+                POP DX
+                int 21h
+                loop print
+        
+        
+            printFinished:
+                POP AX
+        
+        
+        
+    main ENDP
+    
+    ret
+
+    
+
+END
