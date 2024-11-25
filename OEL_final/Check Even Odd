@@ -1,0 +1,32 @@
+org 100h
+
+.DATA
+
+.CODE
+
+    MOV AX, @DATA
+    MOV DS, AX
+    
+    main PROC
+        
+        MOV AX, 5
+        MOV BX, 2
+        DIV BX
+        
+        CMP DX, 0
+        JE even
+        
+        MOV BX, 0
+        JMP finish
+        
+        even:
+        MOV BX, 1
+        
+        finish:     
+        
+        
+    main ENDP
+    
+    ret
+
+END
