@@ -1,0 +1,31 @@
+org 100h
+
+.DATA
+
+.CODE
+
+    MOV AX, @DATA
+    MOV DS, AX
+    
+    main PROC
+        
+        MOV AX, 2
+        MOV Cl, 1
+        
+        multiply:
+            CMP Cl, 6
+            JE finish
+            
+            MOV AX, 2
+            MUL CL
+            INC CL 
+            JMP multiply       
+        
+        finish: 
+        
+        
+    main ENDP
+    
+    ret
+
+END
