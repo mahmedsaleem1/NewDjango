@@ -1,0 +1,28 @@
+org 100h
+
+.DATA
+
+.CODE
+
+    MOV AX, @DATA
+    MOV DS, AX
+    
+    main PROC
+        
+        MOV CX, 3
+        
+        temp:
+            CMP CX, 0
+            JZ loopEnd
+            
+            DEC CX
+            JMP temp
+        
+        loopEnd:      
+        
+        
+    main ENDP
+    
+    ret
+
+END
