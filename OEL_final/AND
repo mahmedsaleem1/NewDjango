@@ -1,0 +1,31 @@
+include 'emu8086.inc'
+
+org 100h
+
+.DATA
+    count DW 0; Store no. of bits
+
+.CODE
+    MOV AX, @DATA
+    MOV DS, AX
+    
+    main PROC
+        
+        MOV AX, 204
+        MOV BX, 51
+        
+        AND AX, BX
+        
+        call print_num
+        
+        
+        
+        
+    main ENDP
+    
+    ret
+
+DEFINE_PRINT_NUM
+DEFINE_PRINT_NUM_UNS    
+
+END
