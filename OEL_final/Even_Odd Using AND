@@ -1,0 +1,37 @@
+include 'emu8086.inc'
+org 100h
+
+.DATA
+    count DW 0; Store no. of bits
+
+.CODE
+    MOV AX, @DATA
+    MOV DS, AX
+    
+    main PROC
+        
+        MOV AX, 5  
+        
+        AND AX, 1
+        
+        CMP AX, 0
+        
+        JE even
+        
+        print "Odd"
+        JMP finished
+        
+        even:
+            print "Even"
+        
+        finished: 
+           
+        
+    main ENDP
+    
+    ret
+
+DEFINE_PRINT_NUM
+DEFINE_PRINT_NUM_UNS    
+
+END
