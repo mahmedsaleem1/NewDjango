@@ -1,0 +1,40 @@
+org 100h
+
+.DATA
+
+.CODE
+
+    MOV AX, @DATA
+    MOV DS, AX
+    
+    main PROC
+        
+        MOV AX, 10
+        MOV BX, 8
+        
+        CMP AX, BX
+        
+        jg greater
+        jl lesser
+        jmp equal
+        
+        greater:
+            MOV CX, 1
+            jmp finish
+        
+        lesser:
+            MOV CX, 2
+            jmp finish
+        
+        equal:
+            MOV CX, 3
+            jmp finish
+        
+        finish:
+        
+        
+    main ENDP
+    
+    ret
+
+END
