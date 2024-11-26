@@ -17,9 +17,10 @@ org 100h
             JE finish
             
             MOV AX, 2
-            MUL CL
-            INC CL 
-            JMP multiply       
+  MUL CL
+  MOV BX, AX
+  INC CL            
+  JMP multiply       
         
         finish: 
         
